@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Lawnmower Game</title>
-        <script type="text/javascript" src="app.js"></script>
-        <link rel="stylesheet" href="stylesheet.css" type="text/css" />
-        
-        
-        
-    </head>
-    
-    <body>
-        <p id="desc">Wow This Lawn Grows Fast</p>
-        <canvas id="lawn" width=500 height=500>Canvas goes here</canvas>
-        <p id="money">$0</p>
-        <p id="totalMowed">Total Grass Mowed: 0</p>
-        <p id="superTicks"></p>
-        <div id="area">
-            <p></p>
-            <button id="upgradetickRate" onclick="upgrade('tickRate')">Tick Rate - $5</button>
-            <span id="texttickRate">Current: 1000 ms</span>
-            <p></p>
-            <button id="upgradegrowthRate" onclick="upgrade('growthRate')">Growth Rate - $10</button>
-            <span id="textgrowthRate">Current: 4 tiles/tick</span>
-            <p></p>
-            <button id="upgrademachineSpeed" onclick="upgrade('machineSpeed')">Machine Speed - $50</button>
-            <span id="textmachineSpeed">Current: 1 tile/tick</span>
-            <p></p>
-            <button id="upgrademachineSize" onclick="upgrade('machineSize')">Machine Size - $75</button>
-            <span id="textmachineSize">Current: 1x1</span>
-            <p></p>
-            <button id="upgradetileSize" onclick="upgrade('tileSize')">Machine Size - $75</button>
-            <span id="texttileSize">Current: 20x20</span>
+
+<head>
+    <title>Lawnmower Game</title>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="css-grid">
+        <!-- Side bar -->
+        <div class="side">
+            <p id="money">$0</p>
+            <p id="totalMowed">Total Grass Mowed: 0</p>
+            <br />
+            <p id="superTicks"></p>
+            <div id="area">
+                <label>Tick Rate <span id="texttickRate" class="floated">1000 ms</span></label>
+                <div class="btn-row">
+                    <button id="upgradetickRate" onclick="upgrade('tickRate')">+1 - $5</button>
+                </div>
+                <label>Growth Rate <span id="textgrowthRate" class="floated">Current: 4 tiles/tick</span></label>
+                <div class="btn-row">
+                    <button id="upgradegrowthRate" onclick="upgrade('growthRate')">Growth Rate - $10</button>
+                </div>
+                <label>Lawnmower Speed <span id="textmachineSpeed" class="floated">Current: 1 tile/tick</span></label>
+                <div class="btn-row">
+                    <button id="upgrademachineSpeed" onclick="upgrade('machineSpeed')">Machine Speed - $50</button>
+                </div>
+                <label>Lawnmower Size <span id="textmachineSize" class="floated">Current: 1x1</span></label>
+                <div class="btn-row">
+                    <button id="upgrademachineSize" onclick="upgrade('machineSize')">Machine Size - $75</button>
+                </div>
+                <label>Tile Size <span id="texttileSize" class="floated">Current: 20x20</span></label>
+                <div class="btn-row">
+                    <button id="upgradetileSize" onclick="upgrade('tileSize')">Machine Size - $75</button>
+                </div>
+            </div>
+            <label>Area</label>
+            <div class="btn-row">
+                <button onclick="previous()">&#x3C;</button>
+                <button id="unlock" onclick="unlockNext()">Unlock Dust Field for $1000000</button>
+                <button onclick="next()">&#x3E;</button>
+            </div>
         </div>
-        <p></p>
-        <button onclick="previous()"><</button>
-        <button id="unlock" onclick="unlockNext()">Unlock Dust Field for $1000000</button>
-        <button onclick="next()">></button>
-        <div id="prestige">
-            <p id="mulch">Mulch: 0</p>
-            <button id="prestigeButton" onclick="attemptPrestige()">Prestige for 0 Mulch</button>
-            <p id="valueBonus">Current Value Bonus: 0%</p>
-            <p id="growthBonus">Current Growth Bonus: 0</p>
+
+        <!-- Botton area of side. For Prestige -->
+        <div class="side-footer">
+            <div id="prestige">
+                <p id="mulch">Mulch: 0</p>
+                <p id="valueBonus">Current Value Bonus: 0%</p>
+                <p id="growthBonus">Current Growth Bonus: 0</p>
+                <button id="prestigeButton" onclick="attemptPrestige()" class="prestige">Prestige for 0 Mulch</button>
+            </div>
         </div>
-        
-    </body>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+        <!-- The Area for the div and other game related information -->
+        <div class="game-area">
+            <canvas id="lawn" width=500 height=500>Canvas goes here</canvas>
+        </div>
+    </div>
+
+    <p id="desc">Wow This Lawn Grows Fast</p>
+</body>
+
 </html>
