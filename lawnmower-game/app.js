@@ -302,7 +302,7 @@ function tick(field){
 
 
 function updateMoney(){
-    document.getElementById("money").innerHTML = "$" + Math.floor(money);
+    document.getElementById("money").innerHTML = formatMoney(money);
     if(activeField.superTicks > 0){
         document.getElementById("superTicks").innerHTML = "Super Ticks: " + activeField.superTicks;
     }else{
@@ -389,4 +389,14 @@ function updateTile(field, x, y){
     ctx.fillStyle = "rgb("+r+","+g+","+b+")";
     ctx.fillRect(x*tileSizes[field.tileSize], y*tileSizes[field.tileSize], tileSizes[field.tileSize], tileSizes[field.tileSize]);
     
+}
+
+function formatMoney(money) {
+	var m = String(Math.floor(money));
+	var r = "";
+	while(m.length > 3) {
+		r += "," + m.slice(-3);
+		m = m.substr(0,m.length-3);
+	}
+	return "$"+m+r;
 }
